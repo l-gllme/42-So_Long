@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 15:33:41 by lguillau         ###   ########.fr       */
+/*   Created: 2021/12/10 12:44:39 by lguillau          #+#    #+#             */
+/*   Updated: 2022/01/31 15:51:56 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
+#define BUFFER_SIZE 100
+# include <stdlib.h>
+# include <unistd.h>
 
-#include "get_next_line.h"
-#include "../libx/mlx.h"
+char	*get_next_line(int fd);
 
-/* ********** Parsing ********** */
+/* -- GNL FUNCTS -- */
 
-char	**create_map(char **av);
-int	how_many_lines(char **av);
+char	*get_read(char *save, int fd);
+char	*get_line(char *save);
+char	*cut_save(char	*save);
 
-/* ********** Tools ********** */
+/* -- UTILS FUNCTS -- */
 
-void	free_char_tab(char **strs);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *s);
 
 #endif

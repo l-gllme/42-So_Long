@@ -6,14 +6,19 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/01/27 17:35:51 by lguillau         ###   ########.fr        #
+#    Updated: 2022/01/31 15:45:19 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FIlES	=	main.c \
+FILES	=	main.c \
+		tools/tools.c \
+		parsing/parsing.c \
+		gnl/get_next_line.c \
+		gnl/get_next_line_utils.c \
 
 S_PATH	=	srcs/
 O_PATH	=	objs/
+I_PATH	=	includes/
 
 SRCS	=	${addprefix ${S_PATH}, ${FILES}}
 OBJS	=	${addprefix ${O_PATH}, ${FILES:.c=.o}}
@@ -28,11 +33,11 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 ${O_PATH}%.o:	${S_PATH}%.c
 		@mkdir -p ${dir $@}
-		@${CC} ${CFLAGS} -c $< -o $@
+		@${CC} ${CFLAGS} -c $< -o $@ -I ${I_PATH}
 		@echo "\e[33mCompiling\e[0m \e[40m$<\e[0m \e[1;33m->\e[0m \e[94m$@\e[0m"
 
 ${NAME}:	${OBJS}
-		@${CC} ${OBJS} -o ${NAME}
+		@${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${I_PATH}
 		@echo ""
 		@echo "\e[36mBuilding\e[0m \e[40m$@\e[0m"
 		@echo ""

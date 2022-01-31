@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 17:43:58 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:39:15 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (0);
+	if (!check_extension(av[1]))
+		ft_error();
 	map = create_map(av);
 	if (!map)
 		return (0);

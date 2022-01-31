@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:25:11 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 17:22:34 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:40:20 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ void	free_char_tab(char **strs)
 
 void	ft_error(void)
 {
-	write(1, "error\n", 6);
+	write(1, "Error\n", 6);
 	exit(0);
+}
+
+int	check_extension(char *s)
+{
+	int	i;
+
+	i = (int)ft_strlen(s);
+	if (s[i - 1] != 'r')
+		return (0);
+	if (s[i - 2] != 'e')
+		return (0);
+	if (s[i - 3] != 'b')
+		return (0);
+	if (s[i - 4] != '.')
+		return (0);
+	return (1);
 }

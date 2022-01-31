@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:11:45 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 18:09:01 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:10:59 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static int	check_full_line(char *s)
 {
 	int	i;
 
-	i = (int)ft_strlen(s);
-	while (i != 0)
+	i = 0;
+	while (i < (int)ft_strlen(s) - 1)
 	{
-		if (s[i - 1] != '1')
+		if (s[i] != '1')
 			return (0);
-		i--;
+		i++;
 	}
 	return (1);
 }

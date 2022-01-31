@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 17:46:52 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:47:45 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	check_map(char **map)
 		i = 0;
 	if (!i)
 		ft_error();
-
 }
 
 int	check_for_invalid_len(char **map)

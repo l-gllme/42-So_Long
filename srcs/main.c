@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 18:39:15 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:46:13 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int ac, char **av)
 {
 	char	**map;
-	int	i;
+	int		i;
 
 	if (ac != 2)
 		return (0);

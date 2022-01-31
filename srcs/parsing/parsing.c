@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 15:51:38 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:46:52 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,54 +16,106 @@ int	how_many_lines(char **av)
 {
 	int		nb;
 	int		fd;
-	int		i;
 	char	*s;
 
 	nb = 0;
-	i = 0;
 	fd = open(av[1], O_RDONLY);
 	s = get_next_line(fd);
 	while (s != NULL)
 	{
-		while (s[++i])
-			if (s[i] == '\n')
-				nb++;
-		if (s)
-			//free(s);
+		nb++;
+		free(s);
 		s = get_next_line(fd);
 	}
-	//free(s);
+	if (s)
+		free(s);
 	close(fd);
-	return (nb + 1);
+	return (nb);
 }
 
 char	**create_map(char **av)
 {
 	int		fd;
 	int		i;
-	int		j;
+	int		nb;
 	char	**map;
-	char	*s;
 
 	i = 0;
-	j = -1;
-	map = malloc(sizeof(char *) * (how_many_lines(av) + 1));
+	nb = how_many_lines(av) + 1;
+	if (nb < 4)
+		ft_error();
+	map = malloc(sizeof(char *) * nb);
 	if (!map)
 		return (NULL);
 	fd = open(av[1], O_RDONLY);
-	s = get_next_line(fd);
-	while (s != NULL)
+	map[i] = get_next_line(fd);
+	while (map[i])
 	{
-		map[i] = ft_strjoin(map[i], s);
-		if (!map[i])
-			free_char_tab(map);
-		while (s[++j])
-			if (s[j] == '\n')
-				i++;
-		//free(s);
-		s = get_next_line(fd);
+		i++;
+		map[i] = get_next_line(fd);
 	}
-	//free(s);
 	close(fd);
+	map[nb] = 0;
 	return (map);
+}
+
+void	check_map(char **map)
+{
+	int	i;
+
+	i = 1;
+	if (!check_for_invalid_len(map))
+		i = 0;
+	if (!check_for_content(map))
+		i = 0;
+	if (!check_border(map))
+		i = 0;
+	if (!i)
+		ft_error();
+
+}
+
+int	check_for_invalid_len(char **map)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(map[i]);
+	while (map[++i])
+		if (len != (int)ft_strlen(map[i]))
+			return (0);
+	return (1);
+}
+
+int	check_for_content(char **map)
+{
+	int		i;
+	int		c;
+	int		e;
+	int		p;
+	int		j;
+	char	*s;
+
+	i = -1;
+	c = 0;
+	p = 0;
+	e = 0;
+	while (map[++i])
+	{
+		j = -1;
+		s = map[i];
+		while (s[++j])
+		{
+			if (s[j] == 'C')
+				c = 1;
+			if (s[j] == 'E')
+				e = 1;
+			if (s[j] == 'P')
+				p = 1;
+		}
+	}
+	if (e == 0 || c == 0 || p == 0)
+		return (0);
+	return (1);
 }

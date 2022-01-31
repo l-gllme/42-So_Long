@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:25:11 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 15:35:19 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:22:34 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,10 @@ void	free_char_tab(char **strs)
 	while (strs[++i])
 		free(strs[i]);
 	free(strs);
+}
+
+void	ft_error(void)
+{
+	write(1, "error\n", 6);
+	exit(0);
 }

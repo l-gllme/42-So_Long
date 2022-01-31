@@ -6,13 +6,14 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/01/31 15:45:19 by lguillau         ###   ########.fr        #
+#    Updated: 2022/01/31 17:24:34 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES	=	main.c \
 		tools/tools.c \
 		parsing/parsing.c \
+		parsing/check_border.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 

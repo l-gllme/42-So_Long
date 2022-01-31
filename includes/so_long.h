@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 15:33:41 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:44:49 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@
 char	**create_map(char **av);
 int	how_many_lines(char **av);
 
+void	check_map(char **map);
+int	check_for_invalid_len(char **map);
+int	check_border(char **map);
+int	check_for_content(char **map);
+
+
 /* ********** Tools ********** */
 
 void	free_char_tab(char **strs);
+void	ft_error(void);
 
 #endif

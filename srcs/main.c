@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 15:52:49 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/01/31 17:43:58 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	main(int ac, char **av)
 	map = create_map(av);
 	if (!map)
 		return (0);
+	check_map(map);
 	i = -1;
-	/*while (map[++i])
-		printf("%s\n", map[i]);*/
+	while (map[++i])
+		printf("%s", map[i]);
+	free_char_tab(map);
 	return (0);
 }

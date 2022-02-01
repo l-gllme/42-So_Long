@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:11:45 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 18:10:59 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:47:37 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,27 @@ int	check_border(char **map)
 		if (!check_center_line(map[i]))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	check_for_invalid(char **map)
+{
+	int		i;
+	int		j;
+	char	*s;
+
+	i = -1;
+	while (map[++i])
+	{
+		s = map[i];
+		j = -1;
+		while (s[++j])
+		{
+			if (s[j] != '1' && s[j] != '0' && s[j] != 'C' && s[j] != 'E'
+					&& s[j] != 'P' && s[j] != 'M' && s[j] != '\n')
+				return (0);
+		}
 	}
 	return (1);
 }

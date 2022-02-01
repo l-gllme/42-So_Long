@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/01 15:17:33 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/01 15:37:16 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	window_height(char **map)
 	while (map[i])
 		i++;
 	i--;
-	return (i * 64);
+	return (i * 32);
 }
 
 int	window_width(char **map)
 {
-	return ((int)ft_strlen(map[0]) * 64);
+	return ((int)ft_strlen(map[0]) * 32);
 }

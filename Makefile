@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/01/31 17:24:34 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/01 12:53:13 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,18 @@ ${O_PATH}%.o:	${S_PATH}%.c
 		@${CC} ${CFLAGS} -c $< -o $@ -I ${I_PATH}
 		@echo "\e[33mCompiling\e[0m \e[40m$<\e[0m \e[1;33m->\e[0m \e[94m$@\e[0m"
 
-${NAME}:	${OBJS}
-		@${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${I_PATH}
+${NAME}:	libx2 ${OBJS}
+		@${CC} ${CFLAGS} libx/libmlx.a ${OBJS} -o ${NAME} -I ${I_PATH}
 		@echo ""
 		@echo "\e[36mBuilding\e[0m \e[40m$@\e[0m"
 		@echo ""
 		@echo "\e[3;32mCompilation is completed !\e[0m"
+
+libx2:		
+		make -C libx
+
+lclean:		
+		make clean -C libx
 
 all:		${NAME}
 
@@ -50,7 +56,7 @@ clean:
 		@${RM} ${O_PATH}
 		@echo "\e[91mRemoving\e[0m \e[40m${O_PATH}\e[0m"
 
-fclean:		clean
+fclean:		lclean clean
 		@${RM} ${NAME}
 		@echo "\e[91mRemoving\e[0m \e[40m${NAME}\e[0m"
 		
@@ -59,4 +65,4 @@ space:
 
 re:		fclean space  all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re libx

@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/01 12:53:13 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/01 15:11:21 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ FILES	=	main.c \
 		parsing/check_border.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
+		window/init_window.c \
 
 S_PATH	=	srcs/
 O_PATH	=	objs/
 I_PATH	=	includes/
+L_PATH	=	libx/
 
 SRCS	=	${addprefix ${S_PATH}, ${FILES}}
 OBJS	=	${addprefix ${O_PATH}, ${FILES:.c=.o}}
@@ -31,6 +33,7 @@ CC	=	clang
 RM	=	rm -rf
 
 CFLAGS	=	-Wall -Wextra -Werror
+LFLAGS	=	-lmlx -lXext -lX11
 
 ${O_PATH}%.o:	${S_PATH}%.c
 		@mkdir -p ${dir $@}
@@ -38,7 +41,7 @@ ${O_PATH}%.o:	${S_PATH}%.c
 		@echo "\e[33mCompiling\e[0m \e[40m$<\e[0m \e[1;33m->\e[0m \e[94m$@\e[0m"
 
 ${NAME}:	libx2 ${OBJS}
-		@${CC} ${CFLAGS} libx/libmlx.a ${OBJS} -o ${NAME} -I ${I_PATH}
+		@${CC} ${OBJS} ${CFLAGS} -L ${L_PATH} ${LFLAGS}  -o ${NAME} -I ${I_PATH}
 		@echo ""
 		@echo "\e[36mBuilding\e[0m \e[40m$@\e[0m"
 		@echo ""

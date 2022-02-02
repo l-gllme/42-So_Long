@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:57:45 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/01 16:59:37 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:46:59 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,29 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
-
 int	main(void)
 {
 	void	*mlx;
+	void	*img;
+	void	*win;
+	char	*relative_path = "./srcs/imgs/wall.xpm";
+	int		img_width;
+	int		img_height;
+
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 500, 500, "Hello world!");
+	img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
+	mlx_put_image_to_window(mlx, win, img, 0, 0);
+	mlx_loop(mlx);
+}
+/*int	main(void)
+{
+	void	*mlx;
 	void	*mlx_win;
-	t_data	img;
-	int	i = -1;
-	int	j = 0;
+	void	*img;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 500, 500, "Hello world!");
-	img.img = mlx_new_image(mlx, 500, 500);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	while (++i < 501)
-	{
-		my_mlx_pixel_put(&img, i, j, 0xFFFFFFFF);
-		j++;
-	}
-	i = 501;
-	j = 0;
-	while (--i > 0 )
-	{
-		my_mlx_pixel_put(&img, i, j, 0xFFFFFFFF);
-		j++;
-	}
-	my_mlx_pixel_put(&img, i, j, 0xFFFFFFFF);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	img = mlx_xpm_file_to_image(mlx, "./srcs/imgs/wall.xpm", 32, 32);
 	mlx_loop(mlx);
-}
+}*/

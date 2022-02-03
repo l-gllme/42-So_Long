@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 12:30:28 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 12:50:31 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,20 @@
 
 void	*put_img(char c, void *mlx)
 {
-	char	*wall = "./srcs/imgs/wall3.xpm";
-	char	*col = "./srcs/imgs/bgc.xpm";
-	char	*player = "./srcs/imgs/Pr.xpm";
-	char	*floor = "./srcs/imgs/lfi.xpm";
-	char	*door = "./srcs/imgs/ldoor.xpm";
 	int		img_width;
 	int		img_height;
 	void	*img;
 
 	if (c == '1')
-		img = mlx_xpm_file_to_image(mlx, wall, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, WALL, &img_width, &img_height);
 	else if (c == '0')
-		img = mlx_xpm_file_to_image(mlx, floor, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, FLOOR, &img_width, &img_height);
 	else if (c == 'E')
-		img = mlx_xpm_file_to_image(mlx, door, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, EXIT, &img_width, &img_height);
 	else if (c == 'P')
-		img = mlx_xpm_file_to_image(mlx, player, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, PLAYER_R, &img_width, &img_height);
 	else
-		img = mlx_xpm_file_to_image(mlx, col, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, CHEST, &img_width, &img_height);
 	return (img);
 }
 

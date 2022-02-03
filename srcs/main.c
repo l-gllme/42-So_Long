@@ -6,17 +6,33 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 13:54:53 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:28:47 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	key_hook(int keycode, t_mlx *mlx)
+int	key_hook(void)
 {
-	print("toto\n");
+	printf("toto\n");
 	return (0);
 }
+
+int	win_close(t_mlx *mlx)
+{
+	mlx_destroy_window(mlx->mlx, mlx->win);
+	return (0);
+}
+int	action(int keycode, t_mlx *mlx)
+{
+
+	if (keycode == ESC)
+	{
+		mlx_destroy_window(mlx->mlx, mlx->win);
+	}
+	return (0);
+}
+
 
 void	*put_img(char c, void *mlx)
 {
@@ -60,19 +76,22 @@ int	main(int ac, char **av)
 	i = -1;
 	while (map[++i])
 	{
-		j = -1;
+		j = 0;
 		s = map[i];
-		while (s[++j])
+		while (s[j])
 		{
 			if (s[j] != '\n')
 			{
 				mlx->img = put_img(s[j], mlx->mlx);
-				mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, j * 32, i * 32);
+				mlx_put_image_to_window(mlx->mlx,
+					       	mlx->win, mlx->img, j * 32, i * 32);
 			}
+			j++;
 		}
 	}
+	mlx_hook(mlx->win, 17, 0, win_close, &mlx);
+	mlx_hook(mlx->win, 2, 1L << 0, action, &mlx);
 	mlx_loop(mlx->mlx);
-	mlx_key_hook(mlx->win, key_hook, &mlx);
 	free_char_tab(map);
 	return (0);
 }

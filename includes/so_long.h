@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 13:39:58 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:03:49 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,19 @@
 # define PLAYER_D "./srcs/imgs/player_d.xpm"
 # define PLAYER_U "./srcs/imgs/player_u.xpm"
 
+# define ESC 0xff1b
+# define UP 0x77
+# define DOWN 0x73
+# define LEFT 0x61
+# define RIGHT 0x64
+
 typedef struct	s_mlx {
 	void	*mlx;
 	void	*win;
 	void	*img;
+	char	**map;
+	int	x;
+	int	y;
 }	t_mlx;
 
 /* ********** Parsing ********** */

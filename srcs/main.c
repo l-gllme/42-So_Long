@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/02 18:08:38 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 01:15:53 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 void	*put_img(char c, void *mlx)
 {
-	char	*relative_path = "./srcs/imgs/wall.xpm";
-	char	*relative_path2 = "./srcs/imgs/white_floor.xpm";
-	char	*other = "./srcs/imgs/wall2.xpm";
+	char	*wall = "./srcs/imgs/wall3.xpm";
+	char	*player = "./srcs/imgs/red.xpm";
+	char	*floor = "./srcs/imgs/lfi.xpm";
+	char	*door = "./srcs/imgs/ldoor.xpm";
 	int		img_width;
 	int		img_height;
 	void	*img;
 
 	if (c == '1')
-		img = mlx_xpm_file_to_image(mlx, other, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, wall, &img_width, &img_height);
 	else if (c == '0')
-		img = mlx_xpm_file_to_image(mlx, relative_path2, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, floor, &img_width, &img_height);
+	else if (c == 'E')
+		img = mlx_xpm_file_to_image(mlx, door, &img_width, &img_height);
 	else 
-		img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
+		img = mlx_xpm_file_to_image(mlx, player, &img_width, &img_height);
 	return (img);
 }
 

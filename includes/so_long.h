@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 16:03:49 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 20:15:31 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ int	check_extension(char *s);
 
 int	window_height(char **map);
 int	window_width(char **map);
+void	*put_tiles(char c, void *mlx);
+void	create_tiles(char **map, t_mlx *mlx);
 
 #endif

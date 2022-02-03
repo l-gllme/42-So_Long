@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 01:15:53 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 01:52:05 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	*put_img(char c, void *mlx)
 {
 	char	*wall = "./srcs/imgs/wall3.xpm";
-	char	*player = "./srcs/imgs/red.xpm";
+	char	*col = "./srcs/imgs/bgc.xpm";
+	char	*player = "./srcs/imgs/Pr.xpm";
 	char	*floor = "./srcs/imgs/lfi.xpm";
 	char	*door = "./srcs/imgs/ldoor.xpm";
 	int		img_width;
@@ -28,8 +29,10 @@ void	*put_img(char c, void *mlx)
 		img = mlx_xpm_file_to_image(mlx, floor, &img_width, &img_height);
 	else if (c == 'E')
 		img = mlx_xpm_file_to_image(mlx, door, &img_width, &img_height);
-	else 
+	else if (c == 'P')
 		img = mlx_xpm_file_to_image(mlx, player, &img_width, &img_height);
+	else
+		img = mlx_xpm_file_to_image(mlx, col, &img_width, &img_height);
 	return (img);
 }
 

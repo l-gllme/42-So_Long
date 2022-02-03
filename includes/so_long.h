@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 12:49:55 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/03 13:39:58 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@
 # define PLAYER_L "./srcs/imgs/player_l.xpm"
 # define PLAYER_D "./srcs/imgs/player_d.xpm"
 # define PLAYER_U "./srcs/imgs/player_u.xpm"
+
+typedef struct	s_mlx {
+	void	*mlx;
+	void	*win;
+	void	*img;
+}	t_mlx;
 
 /* ********** Parsing ********** */
 

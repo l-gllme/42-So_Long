@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 13:17:10 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:36:32 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ void	struct_init(t_m	*m)
 	m->s.player_u = mlx_xpm_file_to_image(m->mlx, PLAYER_U, &i_w, &i_h);
 	m->s.player_l = mlx_xpm_file_to_image(m->mlx, PLAYER_L, &i_w, &i_h);
 	m->s.chest = mlx_xpm_file_to_image(m->mlx, CHEST, &i_w, &i_h);
+	m->s.o_chest = mlx_xpm_file_to_image(m->mlx, O_CHEST, &i_w, &i_h);
 	m->s.exit = mlx_xpm_file_to_image(m->mlx, EXIT, &i_w, &i_h);
-	//m->s.monster = mlx_xpm_file_to_image(m->mlx, MONSTER, &i_w, &i_h);
+	m->s.monster = mlx_xpm_file_to_image(m->mlx, MONSTER, &i_w, &i_h);
+	m->s.a_monster = mlx_xpm_file_to_image(m->mlx, A_MONSTER, &i_w, &i_h);
+	m->s.b_monster = mlx_xpm_file_to_image(m->mlx, B_MONSTER, &i_w, &i_h);
 	m->steps = 0;
 }
 
@@ -46,7 +49,8 @@ int	main(int ac, char **av)
 	m->win = mlx_new_window(m->mlx, w_width(m), w_height(m), "so_long");
 	struct_init(m);
 	map_init(m->map, m);
-	//mlx_hook(m->win, 17, 0, close_win, m);
-	//mlx_hook(m->win, 2, 1L << 0, move, m);
+	mlx_hook(m->win, 17, 0, close_window, m);
+	mlx_hook(m->win, 2, 1L << 0, move, m);
+	mlx_loop_hook(m->mlx, monster_loop, m);
 	mlx_loop(m->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 13:18:20 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 17:58:56 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,26 @@ void	map_init(char **map, t_m *m)
 				mlx_put_image_to_window(m->mlx, m->win, m->s.chest, j * 32, i * 32);
 			if (s[j] == 'E')
 				mlx_put_image_to_window(m->mlx, m->win, m->s.exit, j * 32, i * 32);
-//			if (s[j] == 'M')
-//				mlx_put_image_to_window(m->mlx, m->win, m->s.monster, j * 32, i * 32);
+			if (s[j] == 'M')
+				mlx_put_image_to_window(m->mlx, m->win, m->s.monster, j * 32, i * 32);
 			if (s[j] == 'P')
 				mlx_put_image_to_window(m->mlx, m->win, m->s.player_d, j * 32, i * 32);
 		}
 	}
+}
+
+int	close_window(t_m *m)
+{
+	free_char_tab(m->map);
+	mlx_destroy_window(m->mlx, m->win);
+	free(m);
+	exit(1);
+	return (0);
+}
+
+int	move(int keycode, t_m *m)
+{
+	if (keycode == ESC)
+		close_window(m);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 13:17:19 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 18:39:38 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@
 # define FLOOR "./srcs/imgs/floor.xpm"
 # define EXIT "./srcs/imgs/exit.xpm"
 # define CHEST "./srcs/imgs/chest.xpm"
-# define MONSTER "./srcs/imgs/chest.xpm"
+# define O_CHEST "./srcs/imgs/open_chest.xpm"
+# define MONSTER "./srcs/imgs/monster.xpm"
+# define A_MONSTER "./srcs/imgs/monster_2.xpm"
+# define B_MONSTER "./srcs/imgs/monster_3.xpm"
 # define PLAYER_R "./srcs/imgs/player_r.xpm"
 # define PLAYER_L "./srcs/imgs/player_l.xpm"
 # define PLAYER_D "./srcs/imgs/player_d.xpm"
@@ -46,12 +49,15 @@ typedef struct	s_sprites {
 	void	*floor;
 	void	*wall;
 	void	*chest;
+	void	*o_chest;
 	void	*exit;
 	void	*player_u;
 	void	*player_d;
 	void	*player_r;
 	void	*player_l;
 	void	*monster;
+	void	*a_monster;
+	void	*b_monster;
 }	t_s;
 
 typedef struct	s_mlx {
@@ -59,6 +65,7 @@ typedef struct	s_mlx {
 	void	*win;
 	char	**map;
 	int	steps;
+	int	anim_status;
 	t_s	s;
 	t_c	c;	
 }	t_m;
@@ -89,5 +96,8 @@ int	w_height(t_m *m);
 int	w_width(t_m *m);
 void	map_init(char **map, t_m *m);
 void	struct_init(t_m *m);
+int	close_window(t_m *m);
+int	move(int keycode, t_m *m);
+int	monster_loop(t_m *m);
 
 #endif

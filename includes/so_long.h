@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 20:15:31 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:12:32 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,31 @@
 # define LEFT 0x61
 # define RIGHT 0x64
 
+typedef struct	s_coord {
+	int	x;
+	int	y;
+}	t_c;
+
+typedef struct	s_sprites {
+	void	*floor;
+	void	*wall;
+	void	*chest;
+	void	*player_u;
+	void	*player_d;
+	void	*player_r;
+	void	*player_l;
+	void	*monster;
+}	t_s;
+
 typedef struct	s_mlx {
 	void	*mlx;
 	void	*win;
 	void	*img;
 	char	**map;
-	int	x;
-	int	y;
-}	t_mlx;
+	t_s	*s;
+	t_c	*c;	
+}	t_m;
+
 
 /* ********** Parsing ********** */
 
@@ -65,8 +82,8 @@ int	check_extension(char *s);
 
 /* ********** window ********** */
 
-int	window_height(char **map);
-int	window_width(char **map);
+int	w_height(t_m *m);
+int	w_width(t_m *m);
 void	*put_tiles(char c, void *mlx);
 void	create_tiles(char **map, t_mlx *mlx);
 

@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:02:21 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/03 22:03:43 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:13:17 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ int	main(int ac, char **av)
 	mlx->map = map;
 	mlx->mlx = mlx_init();
 	mlx->win = mlx_new_window(mlx->mlx, window_width(map), window_height(map), "So_long");
-	mlx->x = 42;
 	create_tiles(map, mlx);
 	get_p_pos(map, mlx);
 	mlx_hook(mlx->win, 17, 0, win_close, mlx);

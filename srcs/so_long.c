@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 18:36:32 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 19:13:53 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int	main(int ac, char **av)
 	map_init(m->map, m);
 	mlx_hook(m->win, 17, 0, close_window, m);
 	mlx_hook(m->win, 2, 1L << 0, move, m);
-	mlx_loop_hook(m->mlx, monster_loop, m);
+	//mlx_loop_hook(m->mlx, monster_loop, m);
 	mlx_loop(m->mlx);
 }

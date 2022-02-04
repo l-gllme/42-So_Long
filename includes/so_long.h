@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 18:39:38 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 19:24:53 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,10 @@ int	close_window(t_m *m);
 int	move(int keycode, t_m *m);
 int	monster_loop(t_m *m);
 
+/* ********** movement ********** */
+
+void	player_up(t_m *m);
+void	player_down(t_m *m);
+void	player_right(t_m *m);
+void	player_left(t_m *m);
 #endif

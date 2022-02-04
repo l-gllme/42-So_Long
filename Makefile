@@ -6,11 +6,11 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/01 15:11:21 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/04 13:12:24 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES	=	main.c \
+FILES	=	so_long.c \
 		tools/tools.c \
 		parsing/parsing.c \
 		parsing/check_border.c \

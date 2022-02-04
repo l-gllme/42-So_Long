@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:25:11 by lguillau          #+#    #+#             */
-/*   Updated: 2022/01/31 18:40:20 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/04 12:47:09 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,27 @@ int	check_extension(char *s)
 		return (0);
 	return (1);
 }
+
+void	get_player_pos(t_m *m)
+{
+	int	i;
+	int	j;
+	char	*s;
+
+	i = -1;
+	while (m->map[++i])
+	{
+		j = -1;
+		s = m->map[i];
+		while (s[++j])
+		{
+			if (s[j] == 'P')
+			{
+				m->c.x = i;
+				m->c.y = j;
+				return ;
+			}
+		}
+	}
+}
+

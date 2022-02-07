@@ -6,16 +6,18 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:04:48 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 17:12:35 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:58:17 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static void	move_monster(t_m *m, int x, int y, int i, int j)
+static void	move_monster(t_m *m, int x, int y, int i)
 {
 	int	r;
+	int	j;
 
+	j = y;
 	if (m->map[x][y] == 'M')	
 	{
 		r = rand() % 4;		
@@ -45,7 +47,6 @@ int	rand_move_monster(t_m *m)
 	int	x;
 	int	y;
 	int	i;
-	int	j;
 
 	if (m->i.rand_move == 50000)
 	{
@@ -56,9 +57,8 @@ int	rand_move_monster(t_m *m)
 			while (m->map[x][y])
 			{
 				i = x;
-				j = y;
 				if (m->map[x][y] == 'M')
-					move_monster(m, x, y, i, j);
+					move_monster(m, x, y, i);
 				y++;
 			}
 		}

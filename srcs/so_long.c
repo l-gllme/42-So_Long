@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 18:14:44 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:48:02 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int	main(int ac, char **av)
 	if (!m->map)
 		return (0);
 	m->mlx = mlx_init();
+	if (!m->mlx)
+	{
+		free_char_tab(m->map);
+		free(m);
+		ft_error("Mlx init error");
+	}
 	m->win = mlx_new_window(m->mlx, w_width(m), w_height(m), "so_long");
 	struct_init(m);
 	srand(time(NULL));

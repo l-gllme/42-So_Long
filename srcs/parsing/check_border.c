@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 17:11:45 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 17:58:32 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:40:43 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int	check_for_invalid(char **map)
 {
 	int		i;
 	int		j;
+	int		p;
 	char	*s;
 
 	i = -1;
+	p = 0;
 	while (map[++i])
 	{
 		s = map[i];
@@ -79,6 +81,10 @@ int	check_for_invalid(char **map)
 			if (s[j] != '1' && s[j] != '0' && s[j] != 'C' && s[j] != 'E'
 					&& s[j] != 'P' && s[j] != 'M' && s[j] != '\n')
 				return (0);
+			if (s[j] == 'P' && p == 0)
+				p = 1;
+			else if (s[j] =='P' && p == 1)
+				map[i][j] = '0';
 		}
 	}
 	return (1);

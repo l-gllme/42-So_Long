@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/07 18:24:08 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/07 20:38:12 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g3
 LFLAGS	=	-lmlx_Linux -lXext -lX11
 
 all:		${NAME}
+
 
 ${NAME}:	libx/libmlx_Linux.a ${OBJS}
 		@${CC} ${OBJS} ${CFLAGS} -L ${L_PATH} ${LFLAGS}  -o ${NAME} -I ${I_PATH}

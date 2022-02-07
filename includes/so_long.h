@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 19:24:53 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 14:40:03 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,19 @@ typedef struct	s_sprites {
 	void	*b_monster;
 }	t_s;
 
+typedef struct	s_infos {
+	int	anim_status;
+	int	anim_inc;
+	int	steps;
+}	t_i;
+
 typedef struct	s_mlx {
 	void	*mlx;
 	void	*win;
 	char	**map;
-	int	steps;
-	int	anim_status;
 	t_s	s;
 	t_c	c;	
+	t_i	i;
 }	t_m;
 
 

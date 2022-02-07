@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/04 18:37:44 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/07 14:48:53 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ FILES	=	so_long.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		window/init_window.c \
+		window/monsters.c \
 		window/move.c \
 
 S_PATH	=	srcs/

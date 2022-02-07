@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 19:13:53 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 14:48:07 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	struct_init(t_m	*m)
 	m->s.monster = mlx_xpm_file_to_image(m->mlx, MONSTER, &i_w, &i_h);
 	m->s.a_monster = mlx_xpm_file_to_image(m->mlx, A_MONSTER, &i_w, &i_h);
 	m->s.b_monster = mlx_xpm_file_to_image(m->mlx, B_MONSTER, &i_w, &i_h);
-	m->steps = 0;
+	m->i.steps = 0;
+	m->i.anim_status = 0;
+	m->i.anim_inc = 0;
 }
 
 int	main(int ac, char **av)
@@ -51,6 +53,6 @@ int	main(int ac, char **av)
 	map_init(m->map, m);
 	mlx_hook(m->win, 17, 0, close_window, m);
 	mlx_hook(m->win, 2, 1L << 0, move, m);
-	//mlx_loop_hook(m->mlx, monster_loop, m);
+	mlx_loop_hook(m->mlx, monster_loop, m);
 	mlx_loop(m->mlx);
 }

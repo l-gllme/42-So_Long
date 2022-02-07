@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 14:40:03 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:06:12 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <time.h>
 
 #include "get_next_line.h"
 #include "../libx/mlx.h"
@@ -63,6 +64,7 @@ typedef struct	s_sprites {
 typedef struct	s_infos {
 	int	anim_status;
 	int	anim_inc;
+	int	rand_move;
 	int	steps;
 }	t_i;
 
@@ -104,6 +106,7 @@ void	struct_init(t_m *m);
 int	close_window(t_m *m);
 int	move(int keycode, t_m *m);
 int	monster_loop(t_m *m);
+int	rand_move_monster(t_m *m);
 
 /* ********** movement ********** */
 

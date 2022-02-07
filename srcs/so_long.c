@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 14:48:07 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:00:03 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	struct_init(t_m	*m)
 	m->s.b_monster = mlx_xpm_file_to_image(m->mlx, B_MONSTER, &i_w, &i_h);
 	m->i.steps = 0;
 	m->i.anim_status = 0;
+	m->i.rand_move = 0;
 	m->i.anim_inc = 0;
 }
 
@@ -50,6 +51,7 @@ int	main(int ac, char **av)
 	m->mlx = mlx_init();
 	m->win = mlx_new_window(m->mlx, w_width(m), w_height(m), "so_long");
 	struct_init(m);
+	srand(time(NULL));
 	map_init(m->map, m);
 	mlx_hook(m->win, 17, 0, close_window, m);
 	mlx_hook(m->win, 2, 1L << 0, move, m);

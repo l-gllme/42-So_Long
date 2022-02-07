@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/04 19:26:12 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:54:01 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,7 @@ void	map_init(char **map, t_m *m)
 
 int	close_window(t_m *m)
 {
-	free_char_tab(m->map);
 	mlx_destroy_window(m->mlx, m->win);
-	free(m);
 	exit(1);
 	return (0);
 }

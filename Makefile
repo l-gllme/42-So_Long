@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/07 14:48:53 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/07 18:24:08 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,28 +34,29 @@ CC	=	clang
 
 RM	=	rm -rf
 
-CFLAGS	=	-Wall -Wextra -Werror
-LFLAGS	=	-lmlx -lXext -lX11
+CFLAGS	=	-Wall -Wextra -Werror -g3
+LFLAGS	=	-lmlx_Linux -lXext -lX11
 
-${O_PATH}%.o:	${S_PATH}%.c
-		@mkdir -p ${dir $@}
-		@${CC} ${CFLAGS} -c $< -o $@ -I ${I_PATH}
-		@echo "\e[33mCompiling\e[0m \e[40m$<\e[0m \e[1;33m->\e[0m \e[94m$@\e[0m"
+all:		${NAME}
 
-${NAME}:	libx2 ${OBJS}
+${NAME}:	libx/libmlx_Linux.a ${OBJS}
 		@${CC} ${OBJS} ${CFLAGS} -L ${L_PATH} ${LFLAGS}  -o ${NAME} -I ${I_PATH}
 		@echo ""
 		@echo "\e[36mBuilding\e[0m \e[40m$@\e[0m"
 		@echo ""
 		@echo "\e[3;32mCompilation is completed !\e[0m"
 
-libx2:		
+${O_PATH}%.o:	${S_PATH}%.c
+		@mkdir -p ${dir $@}
+		@${CC} ${CFLAGS} -c $< -o $@ -I ${I_PATH}
+		@echo "\e[33mCompiling\e[0m \e[40m$<\e[0m \e[1;33m->\e[0m \e[94m$@\e[0m"
+
+libx/libmlx_Linux.a:		
 		make -C libx
 
 lclean:		
 		make clean -C libx
 
-all:		${NAME}
 
 clean:		
 		@${RM} ${O_PATH}

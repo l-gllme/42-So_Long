@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 17:08:06 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 18:14:08 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	**create_map(char **av)
 	}
 	close(fd);
 	map[nb] = 0;
+	check_map(map);
 	return (map);
 }
 
@@ -72,7 +73,7 @@ void	check_map(char **map)
 		i = 0;
 	if (!check_border(map))
 		i = 0;
-	if (!i)
+	if (i == 0)
 		ft_error();
 }
 

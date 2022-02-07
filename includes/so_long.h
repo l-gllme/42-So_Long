@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 20:43:25 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 22:29:49 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ typedef struct	s_mlx {
 
 /* ********** Parsing ********** */
 
-char	**create_map(char **av);
+char	**create_map(char **av, t_m *m);
 int	how_many_lines(char **av);
 
-void	check_map(char **map);
+void	check_map(char **map, t_m *m);
 int	check_for_invalid_len(char **map);
 int	check_border(char **map);
 int	check_for_content(char **map);
@@ -96,6 +96,7 @@ void	free_char_tab(char **strs);
 void	ft_error(char *s);
 int	check_extension(char *s);
 void	get_player_pos(t_m *m);
+void	ft_exit(t_m *m);
 
 /* ********** window ********** */
 

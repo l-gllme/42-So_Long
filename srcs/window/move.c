@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:16:35 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 14:05:33 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 22:26:12 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	player_up(t_m *m)
 	else if (m->map[m->c.x - 1][m->c.y] == 'M')
 		exit(1);
 	else if (m->map[m->c.x - 1][m->c.y] == 'E')
-		exit(1);
+		ft_exit(m);
 	else if (m->map[m->c.x - 1][m->c.y] == 'C')
 	{
 		mlx_put_image_to_window(m->mlx, m->win, m->s.o_chest,
@@ -51,7 +51,7 @@ void	player_down(t_m *m)
 	else if (m->map[m->c.x + 1][m->c.y] == 'M')
 		exit(1);
 	else if (m->map[m->c.x + 1][m->c.y] == 'E')
-		exit(1);
+		ft_exit(m);
 	else if (m->map[m->c.x + 1][m->c.y] == 'C')
 	{
 		mlx_put_image_to_window(m->mlx, m->win, m->s.o_chest,
@@ -76,7 +76,7 @@ void	player_right(t_m *m)
 	else if (m->map[m->c.x][m->c.y + 1] == 'M')
 		exit(1);
 	else if (m->map[m->c.x][m->c.y + 1] == 'E')
-		exit(1);
+		ft_exit(m);
 	else if (m->map[m->c.x][m->c.y + 1] == 'C')
 	{
 		mlx_put_image_to_window(m->mlx, m->win, m->s.o_chest,
@@ -101,7 +101,7 @@ void	player_left(t_m *m)
 	else if (m->map[m->c.x][m->c.y - 1] == 'M')
 		exit(1);
 	else if (m->map[m->c.x][m->c.y - 1] == 'E')
-		exit(1);
+		ft_exit(m);
 	else if (m->map[m->c.x][m->c.y - 1] == 'C')
 	{
 		mlx_put_image_to_window(m->mlx, m->win, m->s.o_chest,

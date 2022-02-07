@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 20:46:29 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:52:40 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	how_many_lines(char **av)
 	return (nb);
 }
 
-char	**create_map(char **av)
+char	**create_map(char **av, t_m *m)
 {
 	int		fd;
 	int		i;
@@ -46,7 +46,10 @@ char	**create_map(char **av)
 		ft_error("Invalid Map");
 	map = malloc(sizeof(char *) * nb);
 	if (!map)
+	{
+		free(m);
 		return (NULL);
+	}
 	fd = open(av[1], O_RDONLY);
 	map[i] = get_next_line(fd);
 	while (map[i])
@@ -56,11 +59,11 @@ char	**create_map(char **av)
 	}
 	close(fd);
 	map[nb] = 0;
-	check_map(map);
+	check_map(map, m);
 	return (map);
 }
 
-void	check_map(char **map)
+void	check_map(char **map, t_m *m)
 {
 	int	i;
 
@@ -76,6 +79,7 @@ void	check_map(char **map)
 	if (i == 0)
 	{
 		free_char_tab(map);
+		free(m);
 		ft_error("Invalid map");
 	}
 }

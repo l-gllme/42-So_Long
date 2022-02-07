@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:25:11 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 20:54:29 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/08 00:10:49 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,32 @@ void	get_player_pos(t_m *m)
 			}
 		}
 	}
+}
+
+void	ft_exit(t_m *m)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (m->map[++i])
+	{
+		j = -1;
+		while (m->map[i][++j])
+		{
+			if (m->map[i][j] == 'C')
+			{
+				write(1, "Collect all the chests !\n", 25);
+				return ;
+			}
+		}
+	}
+	free_char_tab(m->map);
+	free(m->mlx);
+	free(m->win);
+	free(m->s.monster);
+	free(m);
+	write(1, "Victory !\n", 10);
+	exit(1);
 }
 

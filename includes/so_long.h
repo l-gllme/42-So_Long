@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 12:56:03 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/14 13:55:20 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_error(char *s);
 int	check_extension(char *s);
 void	get_player_pos(t_m *m);
 void	ft_exit(t_m *m);
+void	free_mlx(t_m *m);
 
 /* ********** window ********** */
 

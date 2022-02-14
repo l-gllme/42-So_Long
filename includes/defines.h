@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:52:31 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 12:55:37 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:58:12 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@
 # define PLAYER_U "./srcs/imgs/player_u.xpm"
 
 # define ESC 0xff1b
-# define UP 0x77
-# define DOWN 0x73
-# define LEFT 0x61
-# define RIGHT 0x64
+
+# define W 0x77
+# define A 0x61
+# define S 0x73
+# define D 0x64
+
+# define UP 0xff52
+# define LEFT 0xff51
+# define DOWN 0xff54
+# define RIGHT 0xff53
 
 typedef struct	s_sprites {
 	void	*floor;

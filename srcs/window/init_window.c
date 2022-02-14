@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 16:54:01 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:58:57 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ int	move(int keycode, t_m *m)
 {
 	if (keycode == ESC)
 		close_window(m);
-	if (keycode == UP)
+	if (keycode == UP || keycode == W)
 		player_up(m);
-	if (keycode == DOWN)
+	if (keycode == DOWN ||keycode == S)
 		player_down(m);
-	if (keycode == LEFT)
+	if (keycode == LEFT || keycode == A)
 		player_left(m);
-	if (keycode == RIGHT)
+	if (keycode == RIGHT || keycode == D)
 		player_right(m);
 	return (0);
 }

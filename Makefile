@@ -6,12 +6,13 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/07 20:38:12 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/14 13:55:57 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES	=	so_long.c \
 		tools/tools.c \
+		tools/exit_game.c \
 		parsing/parsing.c \
 		parsing/check_border.c \
 		gnl/get_next_line.c \

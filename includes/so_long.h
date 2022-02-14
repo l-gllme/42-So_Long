@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 22:29:49 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:56:03 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,46 +20,13 @@
 #include <time.h>
 
 #include "get_next_line.h"
+#include "defines.h"
 #include "../libx/mlx.h"
-
-# define WALL "./srcs/imgs/wall.xpm"
-# define FLOOR "./srcs/imgs/floor.xpm"
-# define EXIT "./srcs/imgs/exit.xpm"
-# define CHEST "./srcs/imgs/chest.xpm"
-# define O_CHEST "./srcs/imgs/open_chest.xpm"
-# define MONSTER "./srcs/imgs/monster.xpm"
-# define A_MONSTER "./srcs/imgs/monster_2.xpm"
-# define B_MONSTER "./srcs/imgs/monster_3.xpm"
-# define PLAYER_R "./srcs/imgs/player_r.xpm"
-# define PLAYER_L "./srcs/imgs/player_l.xpm"
-# define PLAYER_D "./srcs/imgs/player_d.xpm"
-# define PLAYER_U "./srcs/imgs/player_u.xpm"
-
-# define ESC 0xff1b
-# define UP 0x77
-# define DOWN 0x73
-# define LEFT 0x61
-# define RIGHT 0x64
 
 typedef struct	s_coord {
 	int	x;
 	int	y;
 }	t_c;
-
-typedef struct	s_sprites {
-	void	*floor;
-	void	*wall;
-	void	*chest;
-	void	*o_chest;
-	void	*exit;
-	void	*player_u;
-	void	*player_d;
-	void	*player_r;
-	void	*player_l;
-	void	*monster;
-	void	*a_monster;
-	void	*b_monster;
-}	t_s;
 
 typedef struct	s_infos {
 	int	anim_status;
@@ -76,7 +43,6 @@ typedef struct	s_mlx {
 	t_c	c;	
 	t_i	i;
 }	t_m;
-
 
 /* ********** Parsing ********** */
 
@@ -115,4 +81,5 @@ void	player_up(t_m *m);
 void	player_down(t_m *m);
 void	player_right(t_m *m);
 void	player_left(t_m *m);
+
 #endif

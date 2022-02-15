@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 16:38:57 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:02:33 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	map_init(char **map, t_m *m)
 		while (s[++j])
 			sprites_init_cut(s[j], m, i, j);
 	}
+	mlx_string_put(m->mlx, m->win, 13, 19, 0xFFFFFF, "0");
 }
 
 int	move(int keycode, t_m *m)

@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 23:28:57 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:58:38 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ typedef struct s_coord {
 }	t_c;
 
 typedef struct s_infos {
-	int	anim_status;
-	int	anim_inc;
-	int	rand_move;
-	int	steps;
+	int		anim_status;
+	int		anim_inc;
+	int		rand_move;
+	int		steps;
+	char	*itoa_steps;
 }	t_i;
 
 typedef struct s_mlx {
@@ -64,6 +65,7 @@ void	get_player_pos(t_m *m);
 void	ft_exit(t_m *m);
 void	ft_kill(t_m *m, char *msg);
 void	free_mlx(t_m *m);
+char	*ft_itoa(int n);
 int		check_extension(char *s);
 
 /* ********** window ********** */

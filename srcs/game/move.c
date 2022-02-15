@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:16:35 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 13:38:23 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:14:02 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,22 @@
 
 static	void	count_steps(t_m *m)
 {
+	int	i;
+
+	i = 13;
 	m->i.steps++;
+	m->i.itoa_steps = ft_itoa(m->i.steps);
+	if (m->i.steps > 9)
+		i = 10;
+	if (m->i.steps > 99)
+		i = 7;
+	if (m->i.steps > 999)
+		i = 4;
+	if (m->i.steps > 9999)
+		i = 1;
+	mlx_put_image_to_window(m->mlx, m->win, m->s.wall, 0, 0);
+	mlx_string_put(m->mlx, m->win, i, 19, 0xFFFFFF, m->i.itoa_steps);
+	free(m->i.itoa_steps);
 	printf("Steps: %d\n\r", m->i.steps);
 }
 

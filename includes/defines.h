@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:52:31 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 15:58:12 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:12:25 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define DOWN 0xff54
 # define RIGHT 0xff53
 
-typedef struct	s_sprites {
+typedef struct s_sprites {
 	void	*floor;
 	void	*wall;
 	void	*chest;

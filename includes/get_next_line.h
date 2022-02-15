@@ -6,14 +6,14 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 12:44:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 15:00:27 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:12:42 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#define BUFFER_SIZE 1
+# define BUFFER_SIZE 1
 # include <stdlib.h>
 # include <unistd.h>
 

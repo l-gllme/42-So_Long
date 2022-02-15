@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 16:21:25 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:28:19 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ char	**create_map(char **av, t_m *m)
 		map[i] = get_next_line(fd);
 	}
 	close(fd);
-	if (!map[nb])
-		map[nb] = 0;
 	check_map(map, m);
 	return (map);
 }
@@ -73,7 +71,7 @@ void	check_map(char **map, t_m *m)
 		i = 0;
 	if (!check_for_invalid(map))
 		i = 0;
-	if (!check_for_content(map))
+	if (!check_for_content(map, 0, 0, 0))
 		i = 0;
 	if (!check_border(map))
 		i = 0;
@@ -104,30 +102,22 @@ int	check_for_invalid_len(char **map)
 	return (1);
 }
 
-int	check_for_content(char **map)
+int	check_for_content(char **map, int c, int e, int p)
 {
 	int		i;
-	int		c;
-	int		e;
-	int		p;
 	int		j;
-	char	*s;
 
 	i = -1;
-	c = 0;
-	p = 0;
-	e = 0;
 	while (map[++i])
 	{
 		j = -1;
-		s = map[i];
-		while (s[++j])
+		while (map[i][++j])
 		{
-			if (s[j] == 'C')
+			if (map[i][j] == 'C')
 				c = 1;
-			if (s[j] == 'E')
+			if (map[i][j] == 'E')
 				e = 1;
-			if (s[j] == 'P')
+			if (map[i][j] == 'P')
 				p = 1;
 		}
 	}

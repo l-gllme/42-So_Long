@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 15:37:19 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:20:17 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void	struct_init(t_m	*m)
 int	main(int ac, char **av)
 {
 	t_m	*m;
-	
+
 	if (ac != 2)
-		ft_error("Wrong args");
+		ft_error("Bad args!");
+	if (!check_extension(av[1]))
+		ft_error("Bad extension!");
 	m = malloc(sizeof(t_m));
 	if (!m)
 		return (0);
@@ -52,7 +54,7 @@ int	main(int ac, char **av)
 	{
 		free_char_tab(m->map);
 		free(m);
-		ft_error("mlx error");
+		ft_error("mlx init error(env -i ?)");
 	}
 	m->win = mlx_new_window(m->mlx, w_width(m), w_height(m), "so_long");
 	struct_init(m);

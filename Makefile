@@ -6,7 +6,7 @@
 #    By: lguillau <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:32:38 by lguillau          #+#    #+#              #
-#    Updated: 2022/02/14 13:55:57 by lguillau         ###   ########.fr        #
+#    Updated: 2022/02/15 23:30:52 by lguillau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ FILES	=	so_long.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
 		window/init_window.c \
-		window/monsters.c \
-		window/move.c \
+		game/monsters.c \
+		game/move.c \
 
 S_PATH	=	srcs/
 O_PATH	=	objs/

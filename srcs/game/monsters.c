@@ -6,11 +6,18 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:04:48 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 16:32:51 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 23:36:21 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+static void	encounter_non_void(t_m *m, int i, int j)
+{
+	if (m->map[i][j] == 'P')
+		ft_kill(m, "You died!");
+	m->i.rand_move--;
+}
 
 static void	move_monster(t_m *m, int x, int y, int i)
 {
@@ -18,22 +25,20 @@ static void	move_monster(t_m *m, int x, int y, int i)
 	int	j;
 
 	j = y;
-	if (m->map[x][y] == 'M')	
+	if (m->map[x][y] == 'M')
 	{
-		r = rand() % 4;		
+		r = rand() % 4;
 		if (r == 0)
-			i += 1;		
+			i += 1;
 		if (r == 1)
-			i -= 1;		
+			i -= 1;
 		if (r == 2)
 			j += 1;
 		if (r == 3)
 			j -= 1;
 		if (m->map[i][j] != '0')
 		{
-			if (m->map[i][j] == 'P')
-				ft_kill(m, "You died!");
-			m->i.rand_move--;
+			encounter_non_void(m, i, j);
 			return ;
 		}
 		mlx_put_image_to_window(m->mlx, m->win, m->s.floor, y * 32, x * 32);
@@ -63,7 +68,6 @@ int	rand_move_monster(t_m *m)
 				y++;
 			}
 		}
-
 		m->i.rand_move = 0;
 	}
 	else
@@ -79,11 +83,11 @@ static void	change_img(t_m *m, int x, int y)
 	while (r == m->i.anim_status)
 		r = rand() % 3;
 	m->i.anim_status = r;
-	if (m->map[x][y] == 'M' && m->i.anim_status == 0)	
+	if (m->map[x][y] == 'M' && m->i.anim_status == 0)
 		mlx_put_image_to_window(m->mlx, m->win, m->s.a_monster, y * 32, x * 32);
-	if (m->map[x][y] == 'M' && m->i.anim_status == 1)	
+	if (m->map[x][y] == 'M' && m->i.anim_status == 1)
 		mlx_put_image_to_window(m->mlx, m->win, m->s.b_monster, y * 32, x * 32);
-	if (m->map[x][y] == 'M' && m->i.anim_status == 2)	
+	if (m->map[x][y] == 'M' && m->i.anim_status == 2)
 		mlx_put_image_to_window(m->mlx, m->win, m->s.monster, y * 32, x * 32);
 }
 

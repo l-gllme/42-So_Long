@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 15:58:57 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:26:46 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,10 @@ void	map_init(char **map, t_m *m)
 	}
 }
 
-int	close_window(t_m *m)
-{
-	mlx_destroy_window(m->mlx, m->win);
-	exit(1);
-	return (0);
-}
-
 int	move(int keycode, t_m *m)
 {
 	if (keycode == ESC)
-		close_window(m);
+		ft_kill(m, "Esc pressed");
 	if (keycode == UP || keycode == W)
 		player_up(m);
 	if (keycode == DOWN ||keycode == S)

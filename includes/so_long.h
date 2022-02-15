@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:57:39 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 13:55:20 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:14:43 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	check_for_invalid_len(char **map);
 int	check_border(char **map);
 int	check_for_content(char **map);
 int	check_for_invalid(char **map);
+int	check_map_size(char **map);
 
 
 /* ********** Tools ********** */
@@ -63,6 +64,7 @@ void	ft_error(char *s);
 int	check_extension(char *s);
 void	get_player_pos(t_m *m);
 void	ft_exit(t_m *m);
+void	ft_kill(t_m *m, char *msg);
 void	free_mlx(t_m *m);
 
 /* ********** window ********** */

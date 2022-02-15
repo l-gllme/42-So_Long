@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:40:15 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 21:52:40 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:21:25 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**create_map(char **av, t_m *m)
 	if (!map)
 	{
 		free(m);
-		return (NULL);
+		ft_error("Malloc Error");
 	}
 	fd = open(av[1], O_RDONLY);
 	map[i] = get_next_line(fd);
@@ -58,7 +58,8 @@ char	**create_map(char **av, t_m *m)
 		map[i] = get_next_line(fd);
 	}
 	close(fd);
-	map[nb] = 0;
+	if (!map[nb])
+		map[nb] = 0;
 	check_map(map, m);
 	return (map);
 }
@@ -81,6 +82,12 @@ void	check_map(char **map, t_m *m)
 		free_char_tab(map);
 		free(m);
 		ft_error("Invalid map");
+	}
+	if (!check_map_size(map))
+	{
+		free(m);
+		free_char_tab(map);
+		ft_error("Map too big!");
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:16:35 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 13:42:50 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:38:23 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	player_up(t_m *m)
 		count_steps(m);
 	}
 	else if (m->map[m->c.x - 1][m->c.y] == 'M')
-		exit(1);
+		ft_kill(m, "You died!");
 	else if (m->map[m->c.x - 1][m->c.y] == 'E')
 		ft_exit(m);
 	else if (m->map[m->c.x - 1][m->c.y] == 'C')
@@ -57,7 +57,7 @@ void	player_down(t_m *m)
 		count_steps(m);
 	}
 	else if (m->map[m->c.x + 1][m->c.y] == 'M')
-		exit(1);
+		ft_kill(m, "You died!");
 	else if (m->map[m->c.x + 1][m->c.y] == 'E')
 		ft_exit(m);
 	else if (m->map[m->c.x + 1][m->c.y] == 'C')
@@ -83,7 +83,7 @@ void	player_right(t_m *m)
 		count_steps(m);
 	}
 	else if (m->map[m->c.x][m->c.y + 1] == 'M')
-		exit(1);
+		ft_kill(m, "You died!");
 	else if (m->map[m->c.x][m->c.y + 1] == 'E')
 		ft_exit(m);
 	else if (m->map[m->c.x][m->c.y + 1] == 'C')
@@ -109,7 +109,7 @@ void	player_left(t_m *m)
 		count_steps(m);
 	}
 	else if (m->map[m->c.x][m->c.y - 1] == 'M')
-		exit(1);
+		ft_kill(m, "You died!");
 	else if (m->map[m->c.x][m->c.y - 1] == 'E')
 		ft_exit(m);
 	else if (m->map[m->c.x][m->c.y - 1] == 'C')

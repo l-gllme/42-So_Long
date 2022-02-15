@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:44:28 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 15:52:15 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 13:31:19 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ void	free_mlx(t_m *m)
 	free_char_tab(m->map);
 	free(m->mlx);
 	free(m);
+}
+
+int	close_window(t_m *m)
+{
+	ft_kill(m, "Cross Pressed");
+	return (0);
+}
+
+void	ft_kill(t_m *m, char *msg)
+{
+	printf("%s\n", msg);
+	free_mlx(m);
+	exit(1);
 }
 
 void	ft_exit(t_m *m)

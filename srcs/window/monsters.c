@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:04:48 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/07 20:58:17 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:15:38 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static void	move_monster(t_m *m, int x, int y, int i)
 		if (m->map[i][j] != '0')
 		{
 			if (m->map[i][j] == 'P')
-				exit(1);
+				ft_kill(m, "You died!");
+			m->i.rand_move--;
 			return ;
 		}
 		mlx_put_image_to_window(m->mlx, m->win, m->s.floor, y * 32, x * 32);

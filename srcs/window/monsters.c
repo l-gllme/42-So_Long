@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 14:04:48 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 14:15:38 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:32:51 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ int	monster_loop(t_m *m)
 
 	x = -1;
 	rand_move_monster(m);
-	if (m->i.anim_inc == 50000)
+	if (m->i.anim_inc == 0)
 	{
-		m->i.anim_inc = 0;
+		m->i.anim_inc = 50000;
 		while (m->map[++x])
 		{
 			y = 0;
@@ -111,6 +111,6 @@ int	monster_loop(t_m *m)
 			m->i.anim_status = 0;
 	}
 	else
-		m->i.anim_inc++;
+		m->i.anim_inc--;
 	return (0);
 }

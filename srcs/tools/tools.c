@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:25:11 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/14 13:46:10 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:27:59 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	check_extension(char *s)
 
 void	get_player_pos(t_m *m)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*s;
 
 	i = -1;

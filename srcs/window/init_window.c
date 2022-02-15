@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:03:47 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 13:26:46 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:38:57 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,29 @@ int	w_width(t_m *m)
 	return (((int)ft_strlen(m->map[0]) - 1) * 32);
 }
 
+static	void	sprites_init_cut(char s, t_m *m, int i, int j)
+{
+	if (s == '1')
+		mlx_put_image_to_window(m->mlx,
+			m->win, m->s.wall, j * 32, i * 32);
+	if (s == '0')
+		mlx_put_image_to_window(m->mlx,
+			m->win, m->s.floor, j * 32, i * 32);
+	if (s == 'C')
+		mlx_put_image_to_window(m->mlx,
+			m->win, m->s.chest, j * 32, i * 32);
+	if (s == 'E')
+		mlx_put_image_to_window(m->mlx,
+			m->win, m->s.exit, j * 32, i * 32);
+	if (s == 'P')
+		mlx_put_image_to_window(m->mlx,
+			m->win, m->s.player_d, j * 32, i * 32);
+}
+
 void	map_init(char **map, t_m *m)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*s;
 
 	i = -1;
@@ -39,20 +58,7 @@ void	map_init(char **map, t_m *m)
 		j = -1;
 		s = map[i];
 		while (s[++j])
-		{
-			if (s[j] == '1')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.wall, j * 32, i * 32);
-			if (s[j] == '0')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.floor, j * 32, i * 32);
-			if (s[j] == 'C')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.chest, j * 32, i * 32);
-			if (s[j] == 'E')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.exit, j * 32, i * 32);
-			if (s[j] == 'M')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.monster, j * 32, i * 32);
-			if (s[j] == 'P')
-				mlx_put_image_to_window(m->mlx, m->win, m->s.player_d, j * 32, i * 32);
-		}
+			sprites_init_cut(s[j], m, i, j);
 	}
 }
 
@@ -62,7 +68,7 @@ int	move(int keycode, t_m *m)
 		ft_kill(m, "Esc pressed");
 	if (keycode == UP || keycode == W)
 		player_up(m);
-	if (keycode == DOWN ||keycode == S)
+	if (keycode == DOWN || keycode == S)
 		player_down(m);
 	if (keycode == LEFT || keycode == A)
 		player_left(m);

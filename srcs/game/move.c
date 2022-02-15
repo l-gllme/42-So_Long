@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:16:35 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/16 00:14:02 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:15:47 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static	void	count_steps(t_m *m)
 	mlx_put_image_to_window(m->mlx, m->win, m->s.wall, 0, 0);
 	mlx_string_put(m->mlx, m->win, i, 19, 0xFFFFFF, m->i.itoa_steps);
 	free(m->i.itoa_steps);
-	printf("Steps: %d\n\r", m->i.steps);
 }
 
 void	player_up(t_m *m)

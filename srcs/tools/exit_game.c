@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:44:28 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 13:31:19 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 00:16:58 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_exit(t_m *m)
 			}
 		}
 	}
+	printf("Total of steps -> %d\n", m->i.steps);
 	free_mlx(m);
 	write(1, "Victory !\n", 10);
 	exit(1);

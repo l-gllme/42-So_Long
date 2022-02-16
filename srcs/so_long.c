@@ -6,7 +6,7 @@
 /*   By: lguillau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:04:41 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 23:52:02 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:22:29 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int ac, char **av)
 		ft_error("Bad args!");
 	if (!check_extension(av[1]))
 		ft_error("Bad extension!");
+	check_imgs();
 	m = malloc(sizeof(t_m));
 	if (!m)
 		return (0);

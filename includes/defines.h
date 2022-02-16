@@ -6,7 +6,7 @@
 /*   By: lguillau <lguillau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:52:31 by lguillau          #+#    #+#             */
-/*   Updated: 2022/02/15 23:12:25 by lguillau         ###   ########.fr       */
+/*   Updated: 2022/02/16 15:18:24 by lguillau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ typedef struct s_sprites {
 	void	*a_monster;
 	void	*b_monster;
 }	t_s;
+
+void	check_imgs(void);
 
 #endif
